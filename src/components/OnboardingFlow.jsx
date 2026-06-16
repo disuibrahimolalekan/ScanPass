@@ -158,13 +158,13 @@ export default function OnboardingFlow({ onComplete }) {
   // 2. Get Started Screen (Figma Template - Onboarding Screen 1)
   if (step === 'get-started') {
     stepContent = (
-      <div className="screen-container fade-in" style={{ padding: '24px 20px', display: 'flex', flexDirection: 'column', height: '100%', justifyContent: 'space-between', background: '#ffffff', overflowY: 'auto' }}>
+      <div className="screen-container fade-in" style={{ padding: '32px 20px 24px 20px', display: 'flex', flexDirection: 'column', minHeight: '100%', justifyContent: 'flex-start', background: '#ffffff', overflowY: 'auto', gap: '24px', boxSizing: 'border-box' }}>
 
         
         {/* Image Frame */}
-        <div style={{ flex: '1', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '12px 0' }}>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '12px 0' }}>
           <img 
-            style={{ width: '100%', maxHeight: '380px', borderRadius: '24px', objectFit: 'cover' }}
+            style={{ width: '100%', maxHeight: '280px', borderRadius: '24px', objectFit: 'cover' }}
             src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=800&auto=format&fit=crop&q=80" 
             alt="Event Check-in Illustration"
           />
@@ -208,7 +208,7 @@ export default function OnboardingFlow({ onComplete }) {
   // 3. Role Selection Screen (Figma Template - Onboarding Screen 2 with Organize Event card)
   if (step === 'role-selection') {
     stepContent = (
-      <div className="screen-container fade-in" style={{ padding: '24px 20px', display: 'flex', flexDirection: 'column', height: '100%', justifyContent: 'space-between', background: '#ffffff', overflowY: 'auto' }}>
+      <div className="screen-container fade-in" style={{ padding: '32px 20px 24px 20px', display: 'flex', flexDirection: 'column', minHeight: '100%', justifyContent: 'flex-start', background: '#ffffff', overflowY: 'auto', gap: '24px', boxSizing: 'border-box' }}>
 
 
         {/* Title */}
@@ -346,7 +346,7 @@ export default function OnboardingFlow({ onComplete }) {
   // 4. Sign Up Screen (Attendee Figma Template)
   if (step === 'signup') {
     stepContent = (
-      <div className="screen-container fade-in" style={{ padding: '24px 20px', display: 'flex', flexDirection: 'column', height: '100%', justifyContent: 'space-between', background: '#ffffff', overflowY: 'auto' }}>
+      <div className="screen-container fade-in" style={{ padding: '32px 20px 24px 20px', display: 'flex', flexDirection: 'column', minHeight: '100%', justifyContent: 'flex-start', background: '#ffffff', overflowY: 'auto', gap: '24px', boxSizing: 'border-box' }}>
 
 
         {/* Title */}
@@ -491,7 +491,7 @@ export default function OnboardingFlow({ onComplete }) {
   // 5. Login Screen (Attendee Figma Template)
   if (step === 'login') {
     stepContent = (
-      <div className="screen-container fade-in" style={{ padding: '24px 20px', display: 'flex', flexDirection: 'column', height: '100%', justifyContent: 'space-between', background: '#ffffff', overflowY: 'auto' }}>
+      <div className="screen-container fade-in" style={{ padding: '32px 20px 24px 20px', display: 'flex', flexDirection: 'column', minHeight: '100%', justifyContent: 'flex-start', background: '#ffffff', overflowY: 'auto', gap: '24px', boxSizing: 'border-box' }}>
 
 
         {/* Title */}
@@ -598,7 +598,7 @@ export default function OnboardingFlow({ onComplete }) {
   // 6. Forgot Password Screen
   if (step === 'forgot-password') {
     stepContent = (
-      <div className="screen-container fade-in" style={{ padding: '24px 20px', display: 'flex', flexDirection: 'column', height: '100%', justifyContent: 'space-between', background: '#ffffff', overflowY: 'auto' }}>
+      <div className="screen-container fade-in" style={{ padding: '32px 20px 24px 20px', display: 'flex', flexDirection: 'column', minHeight: '100%', justifyContent: 'flex-start', background: '#ffffff', overflowY: 'auto', gap: '24px', boxSizing: 'border-box' }}>
 
 
         {/* Content Container (combining icon, header, and form) */}
@@ -699,7 +699,7 @@ export default function OnboardingFlow({ onComplete }) {
   // 7. Verify OTP Screen
   if (step === 'verify-otp') {
     stepContent = (
-      <div className="screen-container fade-in" style={{ padding: '24px 20px', display: 'flex', flexDirection: 'column', height: '100%', justifyContent: 'space-between', background: '#ffffff', overflowY: 'auto' }}>
+      <div className="screen-container fade-in" style={{ padding: '32px 20px 24px 20px', display: 'flex', flexDirection: 'column', minHeight: '100%', justifyContent: 'flex-start', background: '#ffffff', overflowY: 'auto', gap: '24px', boxSizing: 'border-box' }}>
         {/* Status bar & Back Arrow */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', flexShrink: 0 }}>
 
@@ -803,7 +803,7 @@ export default function OnboardingFlow({ onComplete }) {
   // 8. Reset Password Screen
   if (step === 'reset-password') {
     stepContent = (
-      <div className="screen-container fade-in" style={{ padding: '24px 20px', display: 'flex', flexDirection: 'column', height: '100%', justifyContent: 'space-between', background: '#ffffff', overflowY: 'auto' }}>
+      <div className="screen-container fade-in" style={{ padding: '32px 20px 24px 20px', display: 'flex', flexDirection: 'column', minHeight: '100%', justifyContent: 'flex-start', background: '#ffffff', overflowY: 'auto', gap: '24px', boxSizing: 'border-box' }}>
         {/* Status bar & Back Arrow */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', flexShrink: 0 }}>
 
@@ -904,7 +904,7 @@ export default function OnboardingFlow({ onComplete }) {
   // 9. Location Permission Screen
   if (step === 'location-permission') {
     stepContent = (
-      <div className="screen-container fade-in" style={{ padding: '24px 20px', display: 'flex', flexDirection: 'column', height: '100%', justifyContent: 'space-between', background: '#ffffff', overflowY: 'auto' }}>
+      <div className="screen-container fade-in" style={{ padding: '32px 20px 24px 20px', display: 'flex', flexDirection: 'column', minHeight: '100%', justifyContent: 'flex-start', background: '#ffffff', overflowY: 'auto', gap: '24px', boxSizing: 'border-box' }}>
         {/* Header & Skip Link */}
         <div style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center', height: '32px', flexShrink: 0 }}>
           <button 
@@ -916,7 +916,7 @@ export default function OnboardingFlow({ onComplete }) {
         </div>
 
         {/* Content Block */}
-        <div style={{ display: 'flex', flexDirection: 'column', flex: 1, justifyContent: 'space-between', margin: '16px 0' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', gap: '24px', margin: '16px 0' }}>
           {/* Title & Subtext */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
             <h2 className="font-outfit" style={{ fontSize: '24px', fontWeight: '800', lineHeight: 1.25, color: '#000000' }}>
@@ -928,9 +928,9 @@ export default function OnboardingFlow({ onComplete }) {
           </div>
 
           {/* Map Illustration */}
-          <div style={{ flex: '1', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '24px 0' }}>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '24px 0' }}>
             <img 
-              style={{ width: '100%', maxHeight: '340px', borderRadius: '24px', objectFit: 'contain' }}
+              style={{ width: '100%', maxHeight: '260px', borderRadius: '24px', objectFit: 'contain' }}
               src={locationIllustration} 
               alt="Map and Location selection illustration"
             />
@@ -940,7 +940,7 @@ export default function OnboardingFlow({ onComplete }) {
           <button 
             onClick={() => setStep('location-search')}
             className="primary-button"
-            style={{ width: '100%', padding: '16px', height: '48px', borderRadius: '8px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}
+            style={{ width: '100%', marginBottom: "16px", padding: '16px', height: '48px', borderRadius: '8px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}
           >
             Select Location
           </button>
@@ -1055,7 +1055,7 @@ export default function OnboardingFlow({ onComplete }) {
     const canContinue = selectedInterests.length >= 3;
 
     stepContent = (
-      <div className="screen-container fade-in" style={{ padding: '24px 20px', display: 'flex', flexDirection: 'column', height: '100%', justifyContent: 'space-between', background: '#ffffff', overflowY: 'auto' }}>
+      <div className="screen-container fade-in" style={{ padding: '32px 20px 24px 20px', display: 'flex', flexDirection: 'column', minHeight: '100%', justifyContent: 'flex-start', background: '#ffffff', overflowY: 'auto', gap: '24px', boxSizing: 'border-box' }}>
         {/* Header and Skip */}
         <div style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center', height: '32px', flexShrink: 0 }}>
           <button 
