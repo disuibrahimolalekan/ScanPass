@@ -9,10 +9,19 @@ export default function PaymentSuccessScreen({ event, ticketId, onGoToTickets, o
       height: '100%',
       overflow: 'hidden',
       background: '#fff',
-      fontFamily: 'Inter, sans-serif'
+      fontFamily: 'Inter, sans-serif',
+      position: 'relative'
     }}>
       {/* HEADER */}
-      <div style={{ flexShrink: 0, background: '#fff', padding: '50px 20px 12px 20px' }}>
+      <div style={{
+        flexShrink: 0,
+        background: '#fff',
+        padding: '24px 20px 12px 20px',
+        display: 'flex',
+        alignItems: 'center',
+        borderBottom: '1px solid #f4f4f5',
+        zIndex: 10
+      }}>
         <button
           onClick={onBackToHome}
           style={{

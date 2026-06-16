@@ -21,13 +21,22 @@ export default function TicketSelection({ event, onBack, onCompleteCheckout }) {
       height: '100%',
       overflow: 'hidden',
       background: '#fff',
-      fontFamily: 'Inter, sans-serif'
+      fontFamily: 'Inter, sans-serif',
+      position: 'relative'
     }}>
 
       {/* ══════════════════════════════════════════════════
           FIXED HEADER  (does NOT scroll)
           ══════════════════════════════════════════════════ */}
-      <div style={{ flexShrink: 0, background: '#fff', padding: '50px 20px 12px 20px' }}>
+      <div style={{
+        flexShrink: 0,
+        background: '#fff',
+        padding: '24px 20px 12px 20px',
+        display: 'flex',
+        alignItems: 'center',
+        borderBottom: '1px solid #f4f4f5',
+        zIndex: 10
+      }}>
 
         {/* Back button */}
         <button
@@ -45,7 +54,7 @@ export default function TicketSelection({ event, onBack, onCompleteCheckout }) {
       {/* ══════════════════════════════════════════════════
           SCROLLABLE CONTENT  (only this scrolls)
           ══════════════════════════════════════════════════ */}
-      <div style={{ flex: 1, overflowY: 'auto', display: 'flex', flexDirection: 'column', padding: '0 20px', gap: '16px' }}>
+      <div className="scrollable-content" style={{ flex: 1, overflowY: 'auto', display: 'flex', flexDirection: 'column', padding: '0 20px', gap: '16px' }}>
 
         {/* Page Title */}
         <div style={{ fontSize: '26px', fontWeight: '700', lineHeight: '36px', color: '#18181b' }}>
