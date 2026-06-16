@@ -44,6 +44,7 @@ export default function OnboardingFlow({ onComplete }) {
   const [showNewPassword, setShowNewPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [authError, setAuthError] = useState('');
+  let stepContent = null;
 
   // Splash screen auto-transition
   useEffect(() => {
@@ -143,12 +144,9 @@ export default function OnboardingFlow({ onComplete }) {
 
   // 1. Splash Screen Render (Figma Template)
   if (step === 'splash') {
-    return (
+    stepContent = (
       <div className="relative opacity-90 bg-orange-500 overflow-hidden fade-in" style={{ width: '100%', height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
         <div className="w-[492px] h-[874px] left-[-38px] top-0 absolute" />
-        <div data-device="iPhone" data-orientation="Portrait" data-show-home-indicator="true" className="h-8 left-0 right-0 top-[840px] absolute" style={{ width: '100%' }}>
-          <div className="h-[5px] top-[26px] absolute bg-Labels-Primary rounded-[100px]" style={{ left: 0, right: 0, margin: '0 auto', width: '144px' }} />
-        </div>
         <div className="w-48 top-[360px] absolute inline-flex flex-col justify-start items-center gap-4" style={{ left: 0, right: 0, margin: '0 auto' }}>
           <ScanPassLogo size={64} color="white" />
           <div className="self-stretch text-center justify-start text-white text-4xl font-extrabold font-outfit" style={{ letterSpacing: '-0.5px' }}>ScanPass</div>
@@ -159,8 +157,8 @@ export default function OnboardingFlow({ onComplete }) {
 
   // 2. Get Started Screen (Figma Template - Onboarding Screen 1)
   if (step === 'get-started') {
-    return (
-      <div className="screen-container fade-in" style={{ padding: '24px 20px', display: 'flex', flexDirection: 'column', height: '100%', justifyContent: 'space-between', background: '#ffffff' }}>
+    stepContent = (
+      <div className="screen-container fade-in" style={{ padding: '24px 20px', display: 'flex', flexDirection: 'column', height: '100%', justifyContent: 'space-between', background: '#ffffff', overflowY: 'auto' }}>
 
         
         {/* Image Frame */}
@@ -209,8 +207,8 @@ export default function OnboardingFlow({ onComplete }) {
 
   // 3. Role Selection Screen (Figma Template - Onboarding Screen 2 with Organize Event card)
   if (step === 'role-selection') {
-    return (
-      <div className="screen-container fade-in" style={{ padding: '24px 20px', display: 'flex', flexDirection: 'column', height: '100%', justifyContent: 'space-between', background: '#ffffff' }}>
+    stepContent = (
+      <div className="screen-container fade-in" style={{ padding: '24px 20px', display: 'flex', flexDirection: 'column', height: '100%', justifyContent: 'space-between', background: '#ffffff', overflowY: 'auto' }}>
 
 
         {/* Title */}
@@ -347,7 +345,7 @@ export default function OnboardingFlow({ onComplete }) {
 
   // 4. Sign Up Screen (Attendee Figma Template)
   if (step === 'signup') {
-    return (
+    stepContent = (
       <div className="screen-container fade-in" style={{ padding: '24px 20px', display: 'flex', flexDirection: 'column', height: '100%', justifyContent: 'space-between', background: '#ffffff', overflowY: 'auto' }}>
 
 
@@ -492,7 +490,7 @@ export default function OnboardingFlow({ onComplete }) {
 
   // 5. Login Screen (Attendee Figma Template)
   if (step === 'login') {
-    return (
+    stepContent = (
       <div className="screen-container fade-in" style={{ padding: '24px 20px', display: 'flex', flexDirection: 'column', height: '100%', justifyContent: 'space-between', background: '#ffffff', overflowY: 'auto' }}>
 
 
@@ -599,7 +597,7 @@ export default function OnboardingFlow({ onComplete }) {
 
   // 6. Forgot Password Screen
   if (step === 'forgot-password') {
-    return (
+    stepContent = (
       <div className="screen-container fade-in" style={{ padding: '24px 20px', display: 'flex', flexDirection: 'column', height: '100%', justifyContent: 'space-between', background: '#ffffff', overflowY: 'auto' }}>
 
 
@@ -700,8 +698,8 @@ export default function OnboardingFlow({ onComplete }) {
 
   // 7. Verify OTP Screen
   if (step === 'verify-otp') {
-    return (
-      <div className="screen-container fade-in" style={{ padding: '24px 20px', display: 'flex', flexDirection: 'column', height: '100%', justifyContent: 'space-between', background: '#ffffff' }}>
+    stepContent = (
+      <div className="screen-container fade-in" style={{ padding: '24px 20px', display: 'flex', flexDirection: 'column', height: '100%', justifyContent: 'space-between', background: '#ffffff', overflowY: 'auto' }}>
         {/* Status bar & Back Arrow */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', flexShrink: 0 }}>
 
@@ -804,8 +802,8 @@ export default function OnboardingFlow({ onComplete }) {
 
   // 8. Reset Password Screen
   if (step === 'reset-password') {
-    return (
-      <div className="screen-container fade-in" style={{ padding: '24px 20px', display: 'flex', flexDirection: 'column', height: '100%', justifyContent: 'space-between', background: '#ffffff' }}>
+    stepContent = (
+      <div className="screen-container fade-in" style={{ padding: '24px 20px', display: 'flex', flexDirection: 'column', height: '100%', justifyContent: 'space-between', background: '#ffffff', overflowY: 'auto' }}>
         {/* Status bar & Back Arrow */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', flexShrink: 0 }}>
 
@@ -905,8 +903,8 @@ export default function OnboardingFlow({ onComplete }) {
 
   // 9. Location Permission Screen
   if (step === 'location-permission') {
-    return (
-      <div className="screen-container fade-in" style={{ padding: '24px 20px', display: 'flex', flexDirection: 'column', height: '100%', justifyContent: 'space-between', background: '#ffffff' }}>
+    stepContent = (
+      <div className="screen-container fade-in" style={{ padding: '24px 20px', display: 'flex', flexDirection: 'column', height: '100%', justifyContent: 'space-between', background: '#ffffff', overflowY: 'auto' }}>
         {/* Header & Skip Link */}
         <div style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center', height: '32px', flexShrink: 0 }}>
           <button 
@@ -955,8 +953,8 @@ export default function OnboardingFlow({ onComplete }) {
   if (step === 'location-search') {
     const popularLocations = ['Lagos', 'Port-Harcourt', 'Abuja', 'Oyo'];
     
-    return (
-      <div className="relative bg-WHITE overflow-hidden" style={{ width: '100%', height: '100%' }}>
+    stepContent = (
+      <div className="relative bg-WHITE overflow-hidden" style={{ width: '100%', height: '100%', overflowY: 'auto' }}>
         {/* Background Screen (Dimmed version of Location Permission) */}
         <div style={{ opacity: 0.2, padding: '24px 20px', display: 'flex', flexDirection: 'column', height: '100%', justifyContent: 'space-between', pointerEvents: 'none' }}>
           <div style={{ display: 'flex', justifyContent: 'flex-end', height: '32px' }}>
@@ -1056,8 +1054,8 @@ export default function OnboardingFlow({ onComplete }) {
 
     const canContinue = selectedInterests.length >= 3;
 
-    return (
-      <div className="screen-container fade-in" style={{ padding: '24px 20px', display: 'flex', flexDirection: 'column', height: '100%', justifyContent: 'space-between', background: '#ffffff' }}>
+    stepContent = (
+      <div className="screen-container fade-in" style={{ padding: '24px 20px', display: 'flex', flexDirection: 'column', height: '100%', justifyContent: 'space-between', background: '#ffffff', overflowY: 'auto' }}>
         {/* Header and Skip */}
         <div style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center', height: '32px', flexShrink: 0 }}>
           <button 
@@ -1144,5 +1142,49 @@ export default function OnboardingFlow({ onComplete }) {
     );
   }
 
-  return null;
+  if (step === 'splash') {
+    return stepContent;
+  }
+
+  return (
+    <div className="onboarding-split-container">
+      <div className="onboarding-brand-sidebar">
+        <div className="onboarding-brand-content">
+          <div className="brand-logo-wrapper">
+            <ScanPassLogo size={64} color="white" />
+            <h1 className="brand-title">ScanPass</h1>
+          </div>
+          <p className="brand-subtitle">Your pass to the experience</p>
+          <div className="brand-features">
+            <div className="brand-feature-item">
+              <span className="feature-icon">⚡</span>
+              <div>
+                <h4>Instant Entry Passes</h4>
+                <p>Get verified digital tickets sent straight to your device.</p>
+              </div>
+            </div>
+            <div className="brand-feature-item">
+              <span className="feature-icon">📍</span>
+              <div>
+                <h4>Discover Local Events</h4>
+                <p>Explore conferences, festivals, and workshops in your city.</p>
+              </div>
+            </div>
+            <div className="brand-feature-item">
+              <span className="feature-icon">🔒</span>
+              <div>
+                <h4>Secure Payments</h4>
+                <p>Your transactions are always encrypted and fully secure.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="onboarding-form-area">
+        <div className="onboarding-card-wrapper">
+          {stepContent}
+        </div>
+      </div>
+    </div>
+  );
 }

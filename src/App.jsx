@@ -669,13 +669,7 @@ export default function App() {
 
   // If user has not completed onboarding flow, override with OnboardingFlow
   if (!isOnboarded) {
-    return (
-      <div className="device-emulator">
-        <div className="iphone-frame">
-          <OnboardingFlow onComplete={handleCompleteOnboarding} />
-        </div>
-      </div>
-    );
+    return <OnboardingFlow onComplete={handleCompleteOnboarding} />;
   }
 
   // Show nav bar only on main tab screens (not on event detail, checkout, or ticket details)
