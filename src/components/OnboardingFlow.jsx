@@ -346,11 +346,11 @@ export default function OnboardingFlow({ onComplete }) {
   // 4. Sign Up Screen (Attendee Figma Template)
   if (step === 'signup') {
     stepContent = (
-      <div className="screen-container fade-in" style={{ padding: '32px 20px 24px 20px', display: 'flex', flexDirection: 'column', minHeight: '100%', justifyContent: 'flex-start', background: '#ffffff', overflowY: 'auto', gap: '24px', boxSizing: 'border-box' }}>
+      <div className="screen-container fade-in" style={{ padding: '24px 20px 16px 20px', display: 'flex', flexDirection: 'column', minHeight: '100%', justifyContent: 'flex-start', background: '#ffffff', overflowY: 'auto', gap: '12px', boxSizing: 'border-box' }}>
 
 
         {/* Title */}
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', marginTop: '16px', flexShrink: 0 }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '6px', marginTop: '4px', flexShrink: 0 }}>
           <h2 className="font-outfit" style={{ fontSize: '28px', fontWeight: '800' }}>
             Join the <span style={{ color: 'var(--primary-orange)' }}>Energy</span>
           </h2>
@@ -360,9 +360,9 @@ export default function OnboardingFlow({ onComplete }) {
         </div>
 
         {/* Form container */}
-        <form onSubmit={handleSignup} style={{ display: 'flex', flexDirection: 'column', gap: '14px', margin: '20px 0', flex: 1 }}>
+        <form onSubmit={handleSignup} style={{ display: 'flex', flexDirection: 'column', gap: '10px', margin: '12px 0 0 0', flex: 1 }}>
           {/* Full Name */}
-          <div className="form-group">
+          <div className="form-group" style={{ marginBottom: '0px' }}>
             <label className="form-label">Full Name</label>
             <input 
               type="text" 
@@ -375,7 +375,7 @@ export default function OnboardingFlow({ onComplete }) {
           </div>
 
           {/* Email Address */}
-          <div className="form-group">
+          <div className="form-group" style={{ marginBottom: '0px' }}>
             <label className="form-label">Email Address</label>
             <div style={{ position: 'relative', display: 'flex', alignItems: 'center' }}>
               <Mail size={16} style={{ position: 'absolute', left: '16px', color: 'var(--text-secondary)' }} />
@@ -392,7 +392,7 @@ export default function OnboardingFlow({ onComplete }) {
           </div>
 
           {/* Password */}
-          <div className="form-group">
+          <div className="form-group" style={{ marginBottom: '0px' }}>
             <label className="form-label">Password</label>
             <div style={{ position: 'relative', display: 'flex', alignItems: 'center' }}>
               <Lock size={16} style={{ position: 'absolute', left: '16px', color: 'var(--text-secondary)' }} />
@@ -416,7 +416,7 @@ export default function OnboardingFlow({ onComplete }) {
           </div>
 
           {/* Remember Me / Forgot Password */}
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '4px' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '0px' }}>
             <label style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '13px', cursor: 'pointer' }}>
               <input type="checkbox" className="size-4 bg-white border border-zinc-300 rounded" style={{ cursor: 'pointer' }} />
               <span>Remember Me</span>
@@ -433,13 +433,13 @@ export default function OnboardingFlow({ onComplete }) {
             type="submit"
             disabled={loading}
             className="primary-button"
-            style={{ marginTop: '10px' }}
+            style={{ marginTop: '4px' }}
           >
             {loading ? 'Creating Account...' : 'Create Account'}
           </button>
 
           {/* Social divider */}
-          <div style={{ display: 'flex', alignItems: 'center', margin: '10px 0', gap: '12px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', margin: '6px 0', gap: '12px' }}>
             <div style={{ flex: 1, height: '1px', background: 'var(--border-light)' }}></div>
             <span style={{ fontSize: '12px', color: 'var(--text-muted)' }}>or continue with</span>
             <div style={{ flex: 1, height: '1px', background: 'var(--border-light)' }}></div>
@@ -451,23 +451,23 @@ export default function OnboardingFlow({ onComplete }) {
               type="button"
               onClick={() => handleLocationConfirm('Lekki, Lagos')}
               className="secondary-button"
-              style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', background: 'white', border: '1px solid var(--border-light)', padding: '10px' }}
+              style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', background: '#4285F4', border: 'none', color: '#ffffff', fontWeight: '600', padding: '10px', borderRadius: '8px', cursor: 'pointer' }}
             >
-              <span className="text-xs font-bold text-red-500">G</span> Google
+              <span style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '18px', height: '18px', background: 'white', borderRadius: '50%', fontSize: '11px', fontWeight: 'bold', color: '#4285F4' }}>G</span> Google
             </button>
             <button 
               type="button"
               onClick={() => handleLocationConfirm('Lekki, Lagos')}
               className="secondary-button"
-              style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', background: 'white', border: '1px solid var(--border-light)', padding: '10px' }}
+              style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', background: '#000000', border: 'none', color: '#ffffff', fontWeight: '600', padding: '10px', borderRadius: '8px', cursor: 'pointer' }}
             >
-              <span className="text-xs font-bold text-black"></span> Apple
+              <span style={{ fontSize: '16px', color: '#fff', lineHeight: 1 }}></span> Apple
             </button>
           </div>
         </form>
 
         {/* Footer links */}
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', alignItems: 'center', marginTop: '10px', flexShrink: 0 }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '6px', alignItems: 'center', marginTop: '0px', flexShrink: 0 }}>
           <div style={{ fontSize: '13px', color: 'var(--text-secondary)' }}>
             Already have an account?{' '}
             <span 
@@ -571,6 +571,33 @@ export default function OnboardingFlow({ onComplete }) {
           >
             {loading ? 'Logging in...' : 'Log in'}
           </button>
+
+          {/* Social divider */}
+          <div style={{ display: 'flex', alignItems: 'center', margin: '10px 0', gap: '12px' }}>
+            <div style={{ flex: 1, height: '1px', background: 'var(--border-light)' }}></div>
+            <span style={{ fontSize: '12px', color: 'var(--text-muted)' }}>or continue with</span>
+            <div style={{ flex: 1, height: '1px', background: 'var(--border-light)' }}></div>
+          </div>
+
+          {/* Social login buttons */}
+          <div style={{ display: 'flex', gap: '12px' }}>
+            <button 
+              type="button"
+              onClick={() => handleLocationConfirm('Lekki, Lagos')}
+              className="secondary-button"
+              style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', background: '#4285F4', border: 'none', color: '#ffffff', fontWeight: '600', padding: '10px', borderRadius: '8px', cursor: 'pointer' }}
+            >
+              <span style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '18px', height: '18px', background: 'white', borderRadius: '50%', fontSize: '11px', fontWeight: 'bold', color: '#4285F4' }}>G</span> Google
+            </button>
+            <button 
+              type="button"
+              onClick={() => handleLocationConfirm('Lekki, Lagos')}
+              className="secondary-button"
+              style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', background: '#000000', border: 'none', color: '#ffffff', fontWeight: '600', padding: '10px', borderRadius: '8px', cursor: 'pointer' }}
+            >
+              <span style={{ fontSize: '16px', color: '#fff', lineHeight: 1 }}></span> Apple
+            </button>
+          </div>
         </form>
 
         {/* Footer links */}
