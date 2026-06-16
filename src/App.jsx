@@ -672,7 +672,6 @@ export default function App() {
     return (
       <div className="device-emulator">
         <div className="iphone-frame">
-          <div className="dynamic-island" />
           <OnboardingFlow onComplete={handleCompleteOnboarding} />
         </div>
       </div>
@@ -697,7 +696,22 @@ export default function App() {
   return (
     <div className="device-emulator">
       <div className="iphone-frame" style={{ position: 'relative' }}>
-        <div className="dynamic-island" />
+        {/* Desktop Navigation Header */}
+        <header className="desktop-header">
+          <div 
+            style={{ display: 'flex', alignItems: 'center', gap: '8px', cursor: 'pointer' }} 
+            onClick={() => { setViewingTicket(null); setSelectedEvent(null); setCheckoutStep(null); setCurrentTab('discover'); }}
+          >
+            <span style={{ fontSize: '20px', fontWeight: '800', color: 'var(--primary-orange)', fontFamily: 'Outfit' }}>⚡ ScanPass</span>
+          </div>
+          <nav className="desktop-nav-links">
+            <button onClick={() => { setViewingTicket(null); setSelectedEvent(null); setCheckoutStep(null); setCurrentTab('discover'); }} className={`desktop-nav-btn ${currentTab === 'discover' ? 'active' : ''}`}>Discover</button>
+            <button onClick={() => { setViewingTicket(null); setSelectedEvent(null); setCheckoutStep(null); setCurrentTab('favourites'); }} className={`desktop-nav-btn ${currentTab === 'favourites' ? 'active' : ''}`}>Favourites</button>
+            <button onClick={() => { setViewingTicket(null); setSelectedEvent(null); setCheckoutStep(null); setCurrentTab('tickets'); }} className={`desktop-nav-btn ${currentTab === 'tickets' ? 'active' : ''}`}>My Ticket</button>
+            <button onClick={() => { setViewingTicket(null); setSelectedEvent(null); setCheckoutStep(null); setCurrentTab('notifications'); }} className={`desktop-nav-btn ${currentTab === 'notifications' ? 'active' : ''}`}>Notification</button>
+            <button onClick={() => { setViewingTicket(null); setSelectedEvent(null); setCheckoutStep(null); setCurrentTab('profile'); }} className={`desktop-nav-btn ${currentTab === 'profile' ? 'active' : ''}`}>Profile</button>
+          </nav>
+        </header>
 
         {/* Toast Notification Success Banner */}
         {toastMessage && (
@@ -706,7 +720,7 @@ export default function App() {
           </div>
         )}
 
-        {/* ── Screen Content (flex:1 so it fills space between island and nav) ── */}
+        {/* ── Screen Content (flex:1 so it fills space between header and nav) ── */}
         <div style={{ flex: 1, overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
           {renderScreenContent()}
         </div>
@@ -793,7 +807,7 @@ export default function App() {
         )}
 
         {showNav && (
-          <div style={{
+          <div className="bottom-nav" style={{
             flexShrink: 0, height: '80px',
             background: '#fff0f0',
             boxShadow: '0px -1px 4px 0px rgba(0,0,0,0.25)',

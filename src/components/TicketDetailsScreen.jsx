@@ -250,7 +250,7 @@ export default function TicketDetailsScreen({ ticket, onBack, onSelectEvent }) {
         fontFamily: 'Inter, sans-serif'
       }}>
         {/* HEADER */}
-        <div style={{ flexShrink: 0, background: '#fff', padding: '50px 20px 12px 20px', borderBottom: '1px solid #f4f4f5' }}>
+        <div style={{ flexShrink: 0, background: '#fff', padding: '24px 20px 12px 20px', borderBottom: '1px solid #f4f4f5' }}>
           <button
             onClick={() => setViewMode('qr')}
             style={{
@@ -392,7 +392,7 @@ export default function TicketDetailsScreen({ ticket, onBack, onSelectEvent }) {
       <div style={{
         flexShrink: 0,
         background: '#fff',
-        padding: '50px 20px 12px 20px',
+        padding: '24px 20px 12px 20px',
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
@@ -421,7 +421,7 @@ export default function TicketDetailsScreen({ ticket, onBack, onSelectEvent }) {
       </div>
 
       {/* SCROLLABLE TICKET VIEW */}
-      <div className="scrollable-content" style={{
+      <div className="scrollable-content ticket-details-layout" style={{
         flex: 1,
         overflowY: 'auto',
         padding: '20px',
@@ -431,186 +431,192 @@ export default function TicketDetailsScreen({ ticket, onBack, onSelectEvent }) {
         scrollbarWidth: 'none',
         msOverflowStyle: 'none'
       }}>
-        {/* Date / Time Label */}
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '2px', marginTop: '4px' }}>
-          <span style={{ fontSize: '13px', fontWeight: '500', color: '#71717a' }}>{event.date.split(',')[0]}</span>
-          <span style={{ fontSize: '11px', color: '#a1a1aa' }}>{event.time.split(' ')[0]}</span>
-        </div>
+        {/* Left Column: Date, Event Details, QR Card */}
+        <div className="ticket-left-column" style={{ display: 'flex', flexDirection: 'column', gap: '18px', flex: 1.2, minWidth: 0 }}>
+          {/* Date / Time Label */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '2px', marginTop: '4px' }}>
+            <span style={{ fontSize: '13px', fontWeight: '500', color: '#71717a' }}>{event.date.split(',')[0]}</span>
+            <span style={{ fontSize: '11px', color: '#a1a1aa' }}>{event.time.split(' ')[0]}</span>
+          </div>
 
-        {/* Small Event Row Card */}
-        <div style={{
-          display: 'flex',
-          alignItems: 'center',
-          gap: '12px',
-          paddingBottom: '4px'
-        }}>
-          <img
-            src={event.imageUrl}
-            alt={event.title}
-            style={{ width: '48px', height: '48px', borderRadius: '8px', objectFit: 'cover' }}
-          />
-          <span style={{ fontSize: '16px', fontWeight: '700', color: '#18181b' }}>{event.title}</span>
-        </div>
-
-        {/* LARGE QR CODE CARD */}
-        <div style={{
-          background: '#fff',
-          borderRadius: '16px',
-          padding: '24px 20px 20px 20px',
-          boxShadow: '0 4px 20px rgba(0,0,0,0.08)',
-          border: '1px solid #f4f4f5',
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          gap: '18px'
-        }}>
-          {/* Custom QR Code Image with Center Logo Overlay */}
-          <div style={{ position: 'relative', width: '160px', height: '160px' }}>
+          {/* Small Event Row Card */}
+          <div style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: '12px',
+            paddingBottom: '4px'
+          }}>
             <img
-              src={`https://api.qrserver.com/v1/create-qr-code/?size=160x160&color=18181b&data=ScanPass-${ticket.ticketId}`}
-              alt="ScanPass QR Code"
-              style={{ width: '100%', height: '100%', display: 'block' }}
+              src={event.imageUrl}
+              alt={event.title}
+              style={{ width: '48px', height: '48px', borderRadius: '8px', objectFit: 'cover' }}
             />
-            {/* Custom Orange dead-center logo overlay */}
-            <div style={{
-              position: 'absolute',
-              top: '50%',
-              left: '50%',
-              transform: 'translate(-50%, -50%)',
-              width: '28px',
-              height: '28px',
-              background: '#f97316',
-              borderRadius: '6px',
-              border: '2.5px solid white',
-              boxShadow: '0 2px 6px rgba(0,0,0,0.15)',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center'
-            }}>
-              {/* scanpass square center mark */}
-              <div style={{ width: '8px', height: '8px', background: 'white', borderRadius: '1px' }} />
+            <span style={{ fontSize: '16px', fontWeight: '700', color: '#18181b' }}>{event.title}</span>
+          </div>
+
+          {/* LARGE QR CODE CARD */}
+          <div style={{
+            background: '#fff',
+            borderRadius: '16px',
+            padding: '24px 20px 20px 20px',
+            boxShadow: '0 4px 20px rgba(0,0,0,0.08)',
+            border: '1px solid #f4f4f5',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            gap: '18px'
+          }}>
+            {/* Custom QR Code Image with Center Logo Overlay */}
+            <div style={{ position: 'relative', width: '160px', height: '160px' }}>
+              <img
+                src={`https://api.qrserver.com/v1/create-qr-code/?size=160x160&color=18181b&data=ScanPass-${ticket.ticketId}`}
+                alt="ScanPass QR Code"
+                style={{ width: '100%', height: '100%', display: 'block' }}
+              />
+              {/* Custom Orange dead-center logo overlay */}
+              <div style={{
+                position: 'absolute',
+                top: '50%',
+                left: '50%',
+                transform: 'translate(-50%, -50%)',
+                width: '28px',
+                height: '28px',
+                background: '#f97316',
+                borderRadius: '6px',
+                border: '2.5px solid white',
+                boxShadow: '0 2px 6px rgba(0,0,0,0.15)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center'
+              }}>
+                {/* scanpass square center mark */}
+                <div style={{ width: '8px', height: '8px', background: 'white', borderRadius: '1px' }} />
+              </div>
             </div>
-          </div>
 
-          {/* Subtext info */}
-          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '3px', textAlign: 'center' }}>
-            <span style={{ fontSize: '13px', fontWeight: '600', color: '#18181b' }}>
-              Your Pass to the experience • Ticket 1 of 1
-            </span>
-            <span style={{ fontSize: '11px', color: '#71717a' }}>
-              General Admission • Check-in time: Anytime
-            </span>
-          </div>
+            {/* Subtext info */}
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '3px', textAlign: 'center' }}>
+              <span style={{ fontSize: '13px', fontWeight: '600', color: '#18181b' }}>
+                Your Pass to the experience • Ticket 1 of 1
+              </span>
+              <span style={{ fontSize: '11px', color: '#71717a' }}>
+                General Admission • Check-in time: Anytime
+              </span>
+            </div>
 
-          {/* Add to Ticket Gallery Button */}
-          <button
-            onClick={handleAddToGallery}
-            style={{
-              width: '100%',
-              height: '44px',
-              background: '#000',
-              color: 'white',
-              borderRadius: '8px',
-              border: 'none',
-              cursor: 'pointer',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              gap: '8px',
-              fontSize: '13px',
-              fontWeight: '600',
-              marginTop: '4px'
-            }}
-          >
-            {addedToGallery ? (
-              <>
-                <Check size={15} color="#10b981" />
-                Added to Gallery
-              </>
-            ) : (
-              <>
-                <Wallet size={15} color="white" />
-                Add to Ticket Gallery
-              </>
-            )}
-          </button>
-        </div>
-
-        {/* LIST OPTIONS */}
-        <div style={{ display: 'flex', flexDirection: 'column', background: '#fff', borderRadius: '12px', overflow: 'hidden', border: '1px solid #f4f4f5' }}>
-          
-          {/* 1. Event Details link */}
-          <div
-            onClick={() => onSelectEvent && onSelectEvent(event)}
-            style={{
-              display: 'flex', justifyContent: 'space-between', alignItems: 'center',
-              height: '48px', padding: '0 16px', cursor: 'pointer', borderBottom: '1px solid #f4f4f5'
-            }}
-          >
-            <span style={{ fontSize: '13px', fontWeight: '600', color: '#3f3f46', display: 'flex', alignItems: 'center', gap: '8px' }}>
-              <Calendar size={15} color="#71717a" />
-              Event Details
-            </span>
-            <ChevronRight size={16} color="#a1a1aa" />
-          </div>
-
-          {/* 2. Other Details link */}
-          <div
-            onClick={() => setViewMode('order')}
-            style={{
-              display: 'flex', justifyContent: 'space-between', alignItems: 'center',
-              height: '48px', padding: '0 16px', cursor: 'pointer', borderBottom: '1px solid #f4f4f5'
-            }}
-          >
-            <span style={{ fontSize: '13px', fontWeight: '600', color: '#3f3f46', display: 'flex', alignItems: 'center', gap: '8px' }}>
-              <FileText size={15} color="#71717a" />
-              Other Details
-            </span>
-            <ChevronRight size={16} color="#a1a1aa" />
-          </div>
-
-          {/* 3. Save to Phone link */}
-          <div
-            onClick={handleSaveToPhone}
-            style={{
-              display: 'flex', alignItems: 'center',
-              height: '48px', padding: '0 16px', cursor: 'pointer'
-            }}
-          >
-            <span style={{ fontSize: '13px', fontWeight: '600', color: '#3f3f46', display: 'flex', alignItems: 'center', gap: '8px' }}>
-              <Download size={15} color="#71717a" />
-              Save to Phone
-            </span>
+            {/* Add to Ticket Gallery Button */}
+            <button
+              onClick={handleAddToGallery}
+              style={{
+                width: '100%',
+                height: '44px',
+                background: '#000',
+                color: 'white',
+                borderRadius: '8px',
+                border: 'none',
+                cursor: 'pointer',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '8px',
+                fontSize: '13px',
+                fontWeight: '600',
+                marginTop: '4px'
+              }}
+            >
+              {addedToGallery ? (
+                <>
+                  <Check size={15} color="#10b981" />
+                  Added to Gallery
+                </>
+              ) : (
+                <>
+                  <Wallet size={15} color="white" />
+                  Add to Ticket Gallery
+                </>
+              )}
+            </button>
           </div>
         </div>
 
-        {/* ORGANIZER INFO */}
-        <div style={{
-          display: 'flex',
-          flexDirection: 'column',
-          gap: '8px',
-          marginTop: '6px',
-          paddingBottom: '12px'
-        }}>
-          <span style={{ fontSize: '12px', fontWeight: '500', color: '#71717a' }}>Organized by</span>
-          <div style={{ display: 'flex', alignItems: 'center' }}>
-            <div style={{
-              width: '36px', height: '36px', background: '#f4f4f5', borderRadius: '50%',
-              display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0
-            }}>
-              <span style={{ fontSize: '14px', fontWeight: '700', color: '#f97316' }}>IH</span>
+        {/* Right Column: Menu Options, Organizer Details */}
+        <div className="ticket-right-column" style={{ display: 'flex', flexDirection: 'column', gap: '18px', flex: 1.8, minWidth: 0 }}>
+          {/* LIST OPTIONS */}
+          <div style={{ display: 'flex', flexDirection: 'column', background: '#fff', borderRadius: '12px', overflow: 'hidden', border: '1px solid #f4f4f5' }}>
+            
+            {/* 1. Event Details link */}
+            <div
+              onClick={() => onSelectEvent && onSelectEvent(event)}
+              style={{
+                display: 'flex', justifyContent: 'space-between', alignItems: 'center',
+                height: '48px', padding: '0 16px', cursor: 'pointer', borderBottom: '1px solid #f4f4f5'
+              }}
+            >
+              <span style={{ fontSize: '13px', fontWeight: '600', color: '#3f3f46', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <Calendar size={15} color="#71717a" />
+                Event Details
+              </span>
+              <ChevronRight size={16} color="#a1a1aa" />
             </div>
-            <div style={{ flex: 1, padding: '0 10px' }}>
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                <div>
-                  <div style={{ fontSize: '12px', fontWeight: '500', color: '#27272a', lineHeight: '20px' }}>By Impact Hub Center</div>
-                  <div style={{ fontSize: '10px', color: '#737373', lineHeight: '16px' }}>1k followers</div>
+
+            {/* 2. Other Details link */}
+            <div
+              onClick={() => setViewMode('order')}
+              style={{
+                display: 'flex', justifyContent: 'space-between', alignItems: 'center',
+                height: '48px', padding: '0 16px', cursor: 'pointer', borderBottom: '1px solid #f4f4f5'
+              }}
+            >
+              <span style={{ fontSize: '13px', fontWeight: '600', color: '#3f3f46', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <FileText size={15} color="#71717a" />
+                Other Details
+              </span>
+              <ChevronRight size={16} color="#a1a1aa" />
+            </div>
+
+            {/* 3. Save to Phone link */}
+            <div
+              onClick={handleSaveToPhone}
+              style={{
+                display: 'flex', alignItems: 'center',
+                height: '48px', padding: '0 16px', cursor: 'pointer'
+              }}
+            >
+              <span style={{ fontSize: '13px', fontWeight: '600', color: '#3f3f46', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <Download size={15} color="#71717a" />
+                Save to Phone
+              </span>
+            </div>
+          </div>
+
+          {/* ORGANIZER INFO */}
+          <div style={{
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '8px',
+            marginTop: '6px',
+            paddingBottom: '12px'
+          }}>
+            <span style={{ fontSize: '12px', fontWeight: '500', color: '#71717a' }}>Organized by</span>
+            <div style={{ display: 'flex', alignItems: 'center' }}>
+              <div style={{
+                width: '36px', height: '36px', background: '#f4f4f5', borderRadius: '50%',
+                display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0
+              }}>
+                <span style={{ fontSize: '14px', fontWeight: '700', color: '#f97316' }}>IH</span>
+              </div>
+              <div style={{ flex: 1, padding: '0 10px' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                  <div>
+                    <div style={{ fontSize: '12px', fontWeight: '500', color: '#27272a', lineHeight: '20px' }}>By Impact Hub Center</div>
+                    <div style={{ fontSize: '10px', color: '#737373', lineHeight: '16px' }}>1k followers</div>
+                  </div>
+                  <button style={{
+                    padding: '4px 14px', height: '28px', borderRadius: '8px',
+                    border: '1px solid #3f3f46', background: 'none', cursor: 'pointer',
+                    fontSize: '10px', fontWeight: '500', color: '#000'
+                  }}>Follow</button>
                 </div>
-                <button style={{
-                  padding: '4px 14px', height: '28px', borderRadius: '8px',
-                  border: '1px solid #3f3f46', background: 'none', cursor: 'pointer',
-                  fontSize: '10px', fontWeight: '500', color: '#000'
-                }}>Follow</button>
               </div>
             </div>
           </div>

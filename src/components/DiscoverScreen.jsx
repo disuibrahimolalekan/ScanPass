@@ -28,7 +28,7 @@ export default function DiscoverScreen({
           ══════════════════════════════════════════════════ */}
       <div style={{
         flexShrink: 0,
-        paddingTop: '56px',      /* clears the dynamic island (top:15px + height:30px + buffer) */
+        paddingTop: '24px',
         paddingLeft: '22px',
         paddingRight: '22px',
         paddingBottom: '12px',
@@ -108,7 +108,7 @@ export default function DiscoverScreen({
         )}
 
         {/* ── Recommended for you ── */}
-        <div style={{ padding: '0 22px', display: 'flex', flexDirection: 'column', gap: '14px' }}>
+        <div className="recommended-container" style={{ padding: '0 22px', display: 'flex', flexDirection: 'column', gap: '14px' }}>
 
           {/* Section header */}
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
@@ -155,7 +155,7 @@ export default function DiscoverScreen({
         </div>
 
         {/* ── Upcoming near you ── */}
-        <div style={{ padding: '20px 22px 0 22px', display: 'flex', flexDirection: 'column', gap: '14px' }}>
+        <div className="upcoming-container" style={{ padding: '20px 22px 0 22px', display: 'flex', flexDirection: 'column', gap: '14px' }}>
           <span style={{ fontSize: '20px', fontWeight: '600', color: '#18181b' }}>Upcoming near you</span>
 
           {upcoming.map(event => (

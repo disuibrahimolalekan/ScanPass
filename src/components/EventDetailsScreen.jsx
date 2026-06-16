@@ -58,7 +58,7 @@ export default function EventDetailsScreen({
       <div style={{
         flexShrink: 0,
         background: '#fff',
-        padding: '50px 20px 12px 20px',
+        padding: '24px 20px 12px 20px',
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
@@ -106,7 +106,7 @@ export default function EventDetailsScreen({
           SCROLLABLE CONTENT (no scroll bar)
           ══════════════════════════════════════════════════ */}
       <div 
-        className="scrollable-content"
+        className="scrollable-content event-details-layout"
         style={{ 
           flex: 1, 
           overflowY: 'auto', 
@@ -117,7 +117,7 @@ export default function EventDetailsScreen({
         }}
       >
         {/* Hero image — properly proportioned below the header */}
-        <div style={{ position: 'relative', flexShrink: 0 }}>
+        <div className="event-details-hero-column" style={{ position: 'relative', flexShrink: 0 }}>
           <img
             src={event.imageUrl}
             alt={event.title}
@@ -131,7 +131,7 @@ export default function EventDetailsScreen({
         </div>
 
         {/* Details Card */}
-        <div style={{
+        <div className="event-details-info-column" style={{
           background: '#fff',
           borderRadius: '20px 20px 0 0',
           marginTop: '-20px',

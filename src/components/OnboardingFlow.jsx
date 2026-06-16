@@ -161,15 +161,7 @@ export default function OnboardingFlow({ onComplete }) {
   if (step === 'get-started') {
     return (
       <div className="screen-container fade-in" style={{ padding: '24px 20px', display: 'flex', flexDirection: 'column', height: '100%', justifyContent: 'space-between', background: '#ffffff' }}>
-        {/* Status bar */}
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '13px', fontWeight: '600' }}>
-          <div>9:41</div>
-          <div style={{ display: 'flex', gap: '6px' }}>
-            <div className="w-5 h-3 bg-black" style={{ borderRadius: '2px' }} />
-            <div className="w-4 h-3 bg-black" style={{ borderRadius: '2px' }} />
-            <div className="w-6 h-3 bg-black" style={{ borderRadius: '2px' }} />
-          </div>
-        </div>
+
         
         {/* Image Frame */}
         <div style={{ flex: '1', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '12px 0' }}>
@@ -219,15 +211,7 @@ export default function OnboardingFlow({ onComplete }) {
   if (step === 'role-selection') {
     return (
       <div className="screen-container fade-in" style={{ padding: '24px 20px', display: 'flex', flexDirection: 'column', height: '100%', justifyContent: 'space-between', background: '#ffffff' }}>
-        {/* Status bar */}
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '13px', fontWeight: '600' }}>
-          <div>9:41</div>
-          <div style={{ display: 'flex', gap: '6px' }}>
-            <div className="w-5 h-3 bg-black" style={{ borderRadius: '2px' }} />
-            <div className="w-4 h-3 bg-black" style={{ borderRadius: '2px' }} />
-            <div className="w-6 h-3 bg-black" style={{ borderRadius: '2px' }} />
-          </div>
-        </div>
+
 
         {/* Title */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', marginTop: '16px' }}>
@@ -365,15 +349,7 @@ export default function OnboardingFlow({ onComplete }) {
   if (step === 'signup') {
     return (
       <div className="screen-container fade-in" style={{ padding: '24px 20px', display: 'flex', flexDirection: 'column', height: '100%', justifyContent: 'space-between', background: '#ffffff', overflowY: 'auto' }}>
-        {/* Status bar */}
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '13px', fontWeight: '600', flexShrink: 0 }}>
-          <div>9:41</div>
-          <div style={{ display: 'flex', gap: '6px' }}>
-            <div className="w-5 h-3 bg-black" style={{ borderRadius: '2px' }} />
-            <div className="w-4 h-3 bg-black" style={{ borderRadius: '2px' }} />
-            <div className="w-6 h-3 bg-black" style={{ borderRadius: '2px' }} />
-          </div>
-        </div>
+
 
         {/* Title */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', marginTop: '16px', flexShrink: 0 }}>
@@ -518,15 +494,7 @@ export default function OnboardingFlow({ onComplete }) {
   if (step === 'login') {
     return (
       <div className="screen-container fade-in" style={{ padding: '24px 20px', display: 'flex', flexDirection: 'column', height: '100%', justifyContent: 'space-between', background: '#ffffff', overflowY: 'auto' }}>
-        {/* Status bar */}
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '13px', fontWeight: '600', flexShrink: 0 }}>
-          <div>9:41</div>
-          <div style={{ display: 'flex', gap: '6px' }}>
-            <div className="w-5 h-3 bg-black" style={{ borderRadius: '2px' }} />
-            <div className="w-4 h-3 bg-black" style={{ borderRadius: '2px' }} />
-            <div className="w-6 h-3 bg-black" style={{ borderRadius: '2px' }} />
-          </div>
-        </div>
+
 
         {/* Title */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', marginTop: '16px', flexShrink: 0 }}>
@@ -633,15 +601,7 @@ export default function OnboardingFlow({ onComplete }) {
   if (step === 'forgot-password') {
     return (
       <div className="screen-container fade-in" style={{ padding: '24px 20px', display: 'flex', flexDirection: 'column', height: '100%', justifyContent: 'space-between', background: '#ffffff', overflowY: 'auto' }}>
-        {/* Status bar */}
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '13px', fontWeight: '600', flexShrink: 0 }}>
-          <div>9:41</div>
-          <div style={{ display: 'flex', gap: '6px' }}>
-            <div className="w-5 h-3 bg-black" style={{ borderRadius: '2px' }} />
-            <div className="w-4 h-3 bg-black" style={{ borderRadius: '2px' }} />
-            <div className="w-6 h-3 bg-black" style={{ borderRadius: '2px' }} />
-          </div>
-        </div>
+
 
         {/* Content Container (combining icon, header, and form) */}
         <div style={{ display: 'flex', flexDirection: 'column', flex: 1, justifyContent: 'center', margin: '24px 0' }}>
@@ -744,14 +704,7 @@ export default function OnboardingFlow({ onComplete }) {
       <div className="screen-container fade-in" style={{ padding: '24px 20px', display: 'flex', flexDirection: 'column', height: '100%', justifyContent: 'space-between', background: '#ffffff' }}>
         {/* Status bar & Back Arrow */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', flexShrink: 0 }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '13px', fontWeight: '600' }}>
-            <div>9:41</div>
-            <div style={{ display: 'flex', gap: '6px' }}>
-              <div className="w-5 h-3 bg-black" style={{ borderRadius: '2px' }} />
-              <div className="w-4 h-3 bg-black" style={{ borderRadius: '2px' }} />
-              <div className="w-6 h-3 bg-black" style={{ borderRadius: '2px' }} />
-            </div>
-          </div>
+
           
           <button 
             onClick={() => setStep('forgot-password')}
@@ -855,14 +808,7 @@ export default function OnboardingFlow({ onComplete }) {
       <div className="screen-container fade-in" style={{ padding: '24px 20px', display: 'flex', flexDirection: 'column', height: '100%', justifyContent: 'space-between', background: '#ffffff' }}>
         {/* Status bar & Back Arrow */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', flexShrink: 0 }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '13px', fontWeight: '600' }}>
-            <div>9:41</div>
-            <div style={{ display: 'flex', gap: '6px' }}>
-              <div className="w-5 h-3 bg-black" style={{ borderRadius: '2px' }} />
-              <div className="w-4 h-3 bg-black" style={{ borderRadius: '2px' }} />
-              <div className="w-6 h-3 bg-black" style={{ borderRadius: '2px' }} />
-            </div>
-          </div>
+
           
           <button 
             onClick={() => setStep('verify-otp')}
@@ -961,9 +907,8 @@ export default function OnboardingFlow({ onComplete }) {
   if (step === 'location-permission') {
     return (
       <div className="screen-container fade-in" style={{ padding: '24px 20px', display: 'flex', flexDirection: 'column', height: '100%', justifyContent: 'space-between', background: '#ffffff' }}>
-        {/* Status bar & Skip Link */}
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '13px', fontWeight: '600', flexShrink: 0 }}>
-          <div>9:41</div>
+        {/* Header & Skip Link */}
+        <div style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center', height: '32px', flexShrink: 0 }}>
           <button 
             onClick={() => setStep('interests')}
             style={{ background: 'none', border: 'none', color: '#52525B', fontSize: '14px', fontWeight: '600', cursor: 'pointer', fontFamily: 'Outfit' }}
@@ -1014,8 +959,7 @@ export default function OnboardingFlow({ onComplete }) {
       <div className="relative bg-WHITE overflow-hidden" style={{ width: '100%', height: '100%' }}>
         {/* Background Screen (Dimmed version of Location Permission) */}
         <div style={{ opacity: 0.2, padding: '24px 20px', display: 'flex', flexDirection: 'column', height: '100%', justifyContent: 'space-between', pointerEvents: 'none' }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-            <div>9:41</div>
+          <div style={{ display: 'flex', justifyContent: 'flex-end', height: '32px' }}>
             <div>Skip</div>
           </div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
@@ -1115,8 +1059,7 @@ export default function OnboardingFlow({ onComplete }) {
     return (
       <div className="screen-container fade-in" style={{ padding: '24px 20px', display: 'flex', flexDirection: 'column', height: '100%', justifyContent: 'space-between', background: '#ffffff' }}>
         {/* Header and Skip */}
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '13px', fontWeight: '600', flexShrink: 0 }}>
-          <div>9:41</div>
+        <div style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center', height: '32px', flexShrink: 0 }}>
           <button 
             onClick={handleFinish}
             style={{ background: 'none', border: 'none', color: '#52525B', fontSize: '14px', fontWeight: '600', cursor: 'pointer', fontFamily: 'Outfit' }}

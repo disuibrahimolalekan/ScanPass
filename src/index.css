@@ -57,68 +57,97 @@ body {
   overflow: hidden;
 }
 
-/* Device Wrapper for Desktop Preview */
+/* Device Wrapper for Responsive Layout */
 .device-emulator {
   width: 100%;
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: radial-gradient(circle at 50% 50%, #2e2e2e 0%, #121212 100%);
+  background: #FAF0EE; /* Warm background matching the app */
 }
 
 .iphone-frame {
-  width: min(var(--app-width), 95vw);
-  height: min(var(--app-height), 92vh);
+  width: 100%;
+  height: 100vh;
   background: var(--bg-warm);
-  border-radius: 40px;
-  box-shadow: var(--shadow-iphone), 0 0 0 12px #2A2A2A, 0 0 0 13px #3D3D3D;
   position: relative;
   overflow: hidden;
   display: flex;
   flex-direction: column;
 }
 
-/* iOS Dynamic Island Simulator */
-.dynamic-island {
-  position: absolute;
-  top: 15px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 110px;
-  height: 30px;
-  background: #000000;
-  border-radius: 20px;
-  z-index: 1000;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 12px;
-  box-shadow: inset 0 0 4px rgba(255, 255, 255, 0.1);
+/* Widescreen desktop styling */
+@media (min-width: 768px) {
+  .iphone-frame {
+    width: 95vw;
+    max-width: 1200px;
+    height: 90vh;
+    border-radius: 24px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.06);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    background: #FFFFFF;
+  }
 }
 
-.dynamic-island::before {
-  content: '';
-  width: 10px;
-  height: 10px;
-  background: #101030;
-  border-radius: 50%;
+/* Desktop Header styles */
+.desktop-header {
+  display: none;
 }
 
-.dynamic-island::after {
-  content: '';
-  width: 5px;
-  height: 5px;
-  background: #000000;
-  border-radius: 50%;
-  box-shadow: 0 0 1px 1px #151515;
+@media (min-width: 768px) {
+  .bottom-nav {
+    display: none !important;
+  }
+  
+  .desktop-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+    padding: 0 28px;
+    background: #ffffff;
+    border-bottom: 1px solid var(--border-light);
+    flex-shrink: 0;
+    z-index: 1000;
+  }
+  
+  .desktop-nav-links {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  
+  .desktop-nav-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    padding: 8px 16px;
+    border-radius: 20px;
+    transition: all 0.2s ease;
+    font-family: 'Outfit', sans-serif;
+  }
+  
+  .desktop-nav-btn:hover {
+    color: var(--primary-orange);
+    background: var(--bg-brand-light-alt);
+  }
+  
+  .desktop-nav-btn.active {
+    color: var(--primary-orange);
+    background: var(--bg-brand-light);
+    font-weight: 700;
+  }
 }
 
 /* Navigation Screen Container */
 .screen-container {
   flex: 1;
   overflow: hidden;
-  padding: 60px 20px 20px 20px; /* space for dynamic island */
+  padding: 24px 20px 20px 20px;
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -1203,3 +1232,71 @@ body {
 .opacity-95 { opacity: 0.95; }
 .opacity-30 { opacity: 0.3; }
 .opacity-40 { opacity: 0.4; }
+
+/* Widescreen styles for specific screens */
+@media (min-width: 768px) {
+  /* Discover Screen grid columns */
+  .recommended-container {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 20px !important;
+  }
+  .recommended-container > div:first-child {
+    grid-column: 1 / -1 !important;
+  }
+  
+  .upcoming-container {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 20px !important;
+  }
+  .upcoming-container > span:first-child {
+    grid-column: 1 / -1 !important;
+  }
+
+  /* Event Details Screen split columns */
+  .event-details-layout {
+    flex-direction: row !important;
+    gap: 32px !important;
+    padding: 24px !important;
+  }
+  .event-details-hero-column {
+    flex: 1.2 !important;
+    min-width: 0;
+  }
+  .event-details-info-column {
+    flex: 1.8 !important;
+    margin-top: 0 !important;
+    border-radius: 16px !important;
+    border: 1px solid var(--border-light) !important;
+    padding: 24px !important;
+    background: #ffffff;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+  }
+
+  /* Payment Screen split columns */
+  .checkout-form-layout {
+    flex-direction: row !important;
+    gap: 32px !important;
+  }
+  .checkout-left-column {
+    flex: 1.4 !important;
+  }
+  .checkout-right-column {
+    flex: 1.1 !important;
+    margin-top: 0 !important;
+  }
+
+  /* Ticket Details Screen split columns */
+  .ticket-details-layout {
+    flex-direction: row !important;
+    gap: 32px !important;
+    padding: 24px !important;
+  }
+  .ticket-left-column {
+    flex: 1.2 !important;
+  }
+  .ticket-right-column {
+    flex: 1.8 !important;
+  }
+}
