@@ -659,6 +659,11 @@ export default function App() {
               showToast("Profile updated successfully!");
             }}
             onSelectTicket={setViewingTicket}
+            onLogout={() => {
+              setIsOnboarded(false);
+              safeStorage.setItem('scanpass_onboarded', 'false');
+              setCurrentTab('discover');
+            }}
           />
         );
 

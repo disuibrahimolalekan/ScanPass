@@ -46,6 +46,20 @@
   -webkit-tap-highlight-color: transparent;
 }
 
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  height: 100dvh;
+  overflow: hidden;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+}
+
 body {
   font-family: 'Inter', sans-serif;
   background-color: #1A1A1A;
@@ -53,14 +67,13 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
-  overflow: hidden;
 }
 
 /* Device Wrapper for Responsive Layout */
 .device-emulator {
   width: 100%;
   height: 100vh;
+  height: 100dvh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -70,6 +83,7 @@ body {
 .iphone-frame {
   width: 100%;
   height: 100vh;
+  height: 100dvh;
   background: var(--bg-warm);
   position: relative;
   overflow: hidden;
@@ -1005,6 +1019,7 @@ body {
   .iphone-frame {
     width: 100vw;
     height: 100vh;
+    height: 100dvh;
     border-radius: 0;
     box-shadow: none;
   }
@@ -1444,6 +1459,7 @@ body {
   display: flex;
   width: 100vw;
   height: 100vh;
+  height: 100dvh;
   overflow: hidden;
   background: var(--bg-warm);
   font-family: 'Outfit', sans-serif;

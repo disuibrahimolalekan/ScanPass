@@ -7,7 +7,8 @@ export default function ProfileScreen({
   onNavigateToSupport,
   userProfile = { name: 'Adewale Fisayo', email: 'adewalefissy@gmail.com', phone: '+234 803 123 4567', role: 'Event Attendee', location: 'Ikeja, Lagos, Nigeria' },
   onUpdateProfile,
-  onSelectTicket
+  onSelectTicket,
+  onLogout
 }) {
   const [isEditing, setIsEditing] = useState(false);
   const [editForm, setEditForm] = useState({
@@ -277,6 +278,21 @@ export default function ProfileScreen({
           >
             <HelpCircle size={16} />
             Need help? Contact Support
+          </button>
+        </div>
+
+        {/* Log Out & Reset Button */}
+        <div style={{ marginTop: '12px', width: '100%' }}>
+          <button 
+            className="secondary-button" 
+            style={{ background: '#fef2f2', color: '#ef4444', border: '1px solid #fecaca' }}
+            onClick={() => {
+              if (window.confirm("Are you sure you want to log out and reset onboarding?")) {
+                if (onLogout) onLogout();
+              }
+            }}
+          >
+            Log Out & Reset Onboarding
           </button>
         </div>
       </div>
