@@ -720,7 +720,7 @@ export default function App() {
         )}
 
         {/* ── Screen Content (flex:1 so it fills space between header and nav) ── */}
-        <div style={{ flex: 1, overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
+        <div style={{ flex: 1, minHeight: 0, overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
           {renderScreenContent()}
         </div>
 

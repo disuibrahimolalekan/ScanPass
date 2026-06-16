@@ -7,6 +7,8 @@ export default function PaymentSuccessScreen({ event, ticketId, onGoToTickets, o
       display: 'flex',
       flexDirection: 'column',
       height: '100%',
+      minHeight: 0,
+      flex: 1,
       overflow: 'hidden',
       background: '#fff',
       fontFamily: 'Inter, sans-serif',
