@@ -147,14 +147,37 @@ const INITIAL_NOTIFICATIONS = [
   }
 ];
 
+// Safe LocalStorage wrapper to handle disabled storage and invalid JSON parsing in browsers
+const safeStorage = {
+  getItem: (key) => {
+    try {
+      return localStorage.getItem(key);
+    } catch (e) {
+      console.warn('Storage read blocked for:', key, e);
+      return null;
+    }
+  },
+  setItem: (key, value) => {
+    try {
+      localStorage.setItem(key, value);
+    } catch (e) {
+      console.warn('Storage write blocked for:', key, e);
+    }
+  }
+};
+
 export default function App() {
   // Onboarding & Account State
   const [isOnboarded, setIsOnboarded] = useState(() => {
-    return localStorage.getItem('scanpass_onboarded') === 'true';
+    return safeStorage.getItem('scanpass_onboarded') === 'true';
   });
   const [userProfile, setUserProfile] = useState(() => {
-    const saved = localStorage.getItem('scanpass_profile');
-    return saved ? JSON.parse(saved) : { name: 'Adewale Fisayo', location: 'Lekki, Lagos', interests: [] };
+    try {
+      const saved = safeStorage.getItem('scanpass_profile');
+      return saved ? JSON.parse(saved) : { name: 'Adewale Fisayo', location: 'Lekki, Lagos', interests: [] };
+    } catch (e) {
+      return { name: 'Adewale Fisayo', location: 'Lekki, Lagos', interests: [] };
+    }
   });
 
   // Navigation State: discover, favourites, search, tickets, support, profile, notifications
@@ -163,20 +186,36 @@ export default function App() {
   // App Core State
   const [events] = useState(INITIAL_EVENTS);
   const [reminders, setReminders] = useState(() => {
-    const saved = localStorage.getItem('scanpass_reminders_v3');
-    return saved ? JSON.parse(saved) : [];
+    try {
+      const saved = safeStorage.getItem('scanpass_reminders_v3');
+      return saved ? JSON.parse(saved) : [];
+    } catch (e) {
+      return [];
+    }
   });
   const [favourites, setFavourites] = useState(() => {
-    const saved = localStorage.getItem('scanpass_favourites_v3');
-    return saved ? JSON.parse(saved) : [];
+    try {
+      const saved = safeStorage.getItem('scanpass_favourites_v3');
+      return saved ? JSON.parse(saved) : [];
+    } catch (e) {
+      return [];
+    }
   });
   const [tickets, setTickets] = useState(() => {
-    const saved = localStorage.getItem('scanpass_tickets_v3');
-    return saved ? JSON.parse(saved) : INITIAL_TICKETS;
+    try {
+      const saved = safeStorage.getItem('scanpass_tickets_v3');
+      return saved ? JSON.parse(saved) : INITIAL_TICKETS;
+    } catch (e) {
+      return INITIAL_TICKETS;
+    }
   });
   const [notifications, setNotifications] = useState(() => {
-    const saved = localStorage.getItem('scanpass_notifications_v3');
-    return saved ? JSON.parse(saved) : INITIAL_NOTIFICATIONS;
+    try {
+      const saved = safeStorage.getItem('scanpass_notifications_v3');
+      return saved ? JSON.parse(saved) : INITIAL_NOTIFICATIONS;
+    } catch (e) {
+      return INITIAL_NOTIFICATIONS;
+    }
   });
 
   // Checkout and Modal States
@@ -202,27 +241,27 @@ export default function App() {
 
   // Sync state to LocalStorage
   useEffect(() => {
-    localStorage.setItem('scanpass_onboarded', isOnboarded ? 'true' : 'false');
+    safeStorage.setItem('scanpass_onboarded', isOnboarded ? 'true' : 'false');
   }, [isOnboarded]);
 
   useEffect(() => {
-    localStorage.setItem('scanpass_profile', JSON.stringify(userProfile));
+    safeStorage.setItem('scanpass_profile', JSON.stringify(userProfile));
   }, [userProfile]);
 
   useEffect(() => {
-    localStorage.setItem('scanpass_reminders_v3', JSON.stringify(reminders));
+    safeStorage.setItem('scanpass_reminders_v3', JSON.stringify(reminders));
   }, [reminders]);
 
   useEffect(() => {
-    localStorage.setItem('scanpass_favourites_v3', JSON.stringify(favourites));
+    safeStorage.setItem('scanpass_favourites_v3', JSON.stringify(favourites));
   }, [favourites]);
 
   useEffect(() => {
-    localStorage.setItem('scanpass_tickets_v3', JSON.stringify(tickets));
+    safeStorage.setItem('scanpass_tickets_v3', JSON.stringify(tickets));
   }, [tickets]);
 
   useEffect(() => {
-    localStorage.setItem('scanpass_notifications_v3', JSON.stringify(notifications));
+    safeStorage.setItem('scanpass_notifications_v3', JSON.stringify(notifications));
   }, [notifications]);
 
   // Toast Helper

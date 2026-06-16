@@ -5,8 +5,17 @@ import App from './App.jsx'
 
 // Force clean reload once to bust aggressive browser caching of dev bundles
 const BUNDLE_VERSION = 'v_cache_bust_106';
-if (localStorage.getItem('scanpass_bundle_version') !== BUNDLE_VERSION) {
-  localStorage.setItem('scanpass_bundle_version', BUNDLE_VERSION);
+let shouldReload = false;
+try {
+  if (localStorage.getItem('scanpass_bundle_version') !== BUNDLE_VERSION) {
+    localStorage.setItem('scanpass_bundle_version', BUNDLE_VERSION);
+    shouldReload = true;
+  }
+} catch (e) {
+  console.warn('localStorage access blocked:', e);
+}
+
+if (shouldReload) {
   window.location.reload();
 } else {
   createRoot(document.getElementById('root')).render(
